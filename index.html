@@ -3,7 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXORA | 戦略型AIコンサルティング</title>
+    
+    <title>NEXORA | 戦略型AIコンサルティング - 中小企業の実行力を加速する</title>
+    <meta name="description" content="NEXORAは中小企業専門のAIコンサルティングファームです。AI導入診断から伴走支援、人材育成まで、現場の課題を解決し実行力をもたらすAIパートナーとして企業の成長を支援します。">
+    <meta name="keywords" content="AIコンサルティング, AI導入, 中小企業, NEXORA, 相模原市, DX推進, AI人材育成">
+    <link rel="canonical" href="https://nexora-official.vercel.app/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="NEXORA | 戦略型AIコンサルティング">
+    <meta property="og:description" content="AIは大企業だけの特権ではない。中小企業の現場に実行力をもたらすAIパートナー。">
+    <meta property="og:image" content="logo.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "NEXORA",
+      "image": "logo.png",
+      "description": "中小企業向け戦略型AIコンサルティングファーム",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "相模原市",
+        "addressRegion": "神奈川県",
+        "addressCountry": "JP"
+      },
+      "url": "https://nexora-official.vercel.app/"
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
@@ -29,8 +56,6 @@
         }
         #menu-overlay { clip-path: circle(0% at 100% 0%); transition: clip-path 0.6s ease-in-out; }
         #menu-overlay.open { clip-path: circle(150% at 100% 0%); }
-
-        /* スライダー用設定 */
         .slider-container { width: 100%; height: 300px; overflow: hidden; position: relative; border-radius: 0 0 50px 50px; }
         .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.5s ease-in-out; background-size: cover; background-position: center; }
         .slide.active { opacity: 1; }
@@ -39,7 +64,10 @@
 <body>
 
     <nav class="fixed top-0 w-full z-[100] bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
-        <div class="text-2xl font-bold tracking-tighter">NEXORA</div>
+        <div class="flex items-center gap-3">
+            <img src="logo.png" alt="NEXORA ロゴ" class="h-8 md:h-10 w-auto object-contain" onerror="this.style.display='none'">
+            <div class="text-2xl font-bold tracking-tighter">NEXORA</div>
+        </div>
         <div class="flex items-center gap-4">
             <a href="#contact" class="hidden sm:block px-5 py-2 rounded-full bg-blue-600 text-white text-xs font-bold shadow-lg shadow-blue-500/20">無料相談</a>
             <button id="menu-btn" class="p-2 text-white hover:text-blue-400 transition-colors">
@@ -96,21 +124,7 @@
                     <p class="text-sm text-gray-300">独自開発のAIエージェントによる業務分析エンジンのベータ版を公開しました。</p>
                 </div>
             </div>
-            <div class="flex items-start gap-4 border-b border-white/5 pb-4 transition-colors hover:bg-white/5 p-2 rounded-lg">
-                <span class="text-blue-400 font-mono text-sm pt-1">2026.03.15</span>
-                <div>
-                    <span class="text-[10px] bg-cyan-600/20 text-cyan-400 px-2 py-0.5 rounded mr-2">Topics</span>
-                    <p class="text-sm text-gray-300">中小企業庁主催のAI導入促進セミナーにて、代表が登壇いたしました。</p>
-                </div>
             </div>
-            <div class="flex items-start gap-4 transition-colors hover:bg-white/5 p-2 rounded-lg">
-                <span class="text-blue-400 font-mono text-sm pt-1">2026.03.01</span>
-                <div>
-                    <span class="text-[10px] bg-purple-600/20 text-purple-400 px-2 py-0.5 rounded mr-2">Case Study</span>
-                    <p class="text-sm text-gray-300">製造業向けAI需要予測モデルの実装により、在庫コスト30%削減に成功しました。</p>
-                </div>
-            </div>
-        </div>
     </section>
 
     <section id="services" class="py-32 px-6 max-w-7xl mx-auto">
@@ -124,48 +138,17 @@
                 <div class="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center"><i data-lucide="compass" class="text-white"></i></div>
                 <h3 class="text-2xl font-bold">AI導入診断</h3>
                 <p class="text-gray-400 text-sm leading-relaxed">業務プロセスを分析し、AI導入の可能性と最適な戦略を明確化します。</p>
-                <ul class="text-xs text-gray-500 space-y-2"><li>・現状分析</li><li>・機会発掘</li><li>・ロードマップ策定</li></ul>
             </div>
             <div class="glass-card p-10 space-y-6 reveal">
                 <div class="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center"><i data-lucide="zap" class="text-white"></i></div>
                 <h3 class="text-2xl font-bold">伴走コンサル</h3>
                 <p class="text-gray-400 text-sm leading-relaxed">ツール選定から運用まで、現場の課題解決を継続的にサポートします。</p>
-                <ul class="text-xs text-gray-500 space-y-2"><li>・ツール選定</li><li>・プロンプト設計</li><li>・実装支援</li></ul>
             </div>
             <div class="glass-card p-10 space-y-6 reveal">
                 <div class="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center"><i data-lucide="users" class="text-white"></i></div>
                 <h3 class="text-2xl font-bold">AI人材育成</h3>
                 <p class="text-gray-400 text-sm leading-relaxed">従業員が自律的にAIを武器にできる実務型ワークショップを提供します。</p>
-                <ul class="text-xs text-gray-500 space-y-2"><li>・基礎研修</li><li>・実務スキル</li><li>・内製化支援</li></ul>
             </div>
-        </div>
-    </section>
-
-    <section id="why" class="py-32 bg-[#050a18] px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20 reveal">
-                <p class="text-blue-400 text-xs font-bold tracking-[0.3em] uppercase mb-4">Why NEXORA</p>
-                <h2 class="text-3xl md:text-5xl font-bold">NEXORAが選ばれる理由</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-                <div class="glass-card p-8 reveal"><i data-lucide="target" class="mx-auto mb-4 text-blue-400"></i><h4 class="font-bold mb-2">中小企業専門</h4><p class="text-xs text-gray-500">現場の実情に合わせた提案</p></div>
-                <div class="glass-card p-8 reveal"><i data-lucide="trending-up" class="mx-auto mb-4 text-blue-400"></i><h4 class="font-bold mb-2">ROI重視</h4><p class="text-xs text-gray-500">投資対効果を最大化</p></div>
-                <div class="glass-card p-8 reveal"><i data-lucide="shield-check" class="mx-auto mb-4 text-blue-400"></i><h4 class="font-bold mb-2">セキュリティ</h4><p class="text-xs text-gray-500">安全なAI活用を最優先</p></div>
-                <div class="glass-card p-8 reveal"><i data-lucide="clock" class="mx-auto mb-4 text-blue-400"></i><h4 class="font-bold mb-2">迅速な導入</h4><p class="text-xs text-gray-500">最短2週間で効果実感</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="process" class="py-32 px-6 max-w-4xl mx-auto">
-        <div class="text-center mb-20 reveal">
-            <p class="text-blue-400 text-xs font-bold tracking-[0.3em] uppercase mb-4">Process</p>
-            <h2 class="text-3xl md:text-5xl font-bold">導入プロセス</h2>
-        </div>
-        <div class="space-y-6">
-            <div class="glass-card p-6 flex items-center gap-6 reveal"><span class="text-2xl font-bold text-blue-600">01</span><div><h4 class="font-bold">無料診断</h4><p class="text-xs text-gray-500">現状の課題と可能性をヒアリング</p></div></div>
-            <div class="glass-card p-6 flex items-center gap-6 reveal"><span class="text-2xl font-bold text-blue-600">02</span><div><h4 class="font-bold">戦略立案</h4><p class="text-xs text-gray-500">具体的な導入プランを策定</p></div></div>
-            <div class="glass-card p-6 flex items-center gap-6 reveal"><span class="text-2xl font-bold text-blue-600">03</span><div><h4 class="font-bold">実装支援</h4><p class="text-xs text-gray-500">現場への導入と運用をサポート</p></div></div>
-            <div class="glass-card p-6 flex items-center gap-6 reveal"><span class="text-2xl font-bold text-blue-600">04</span><div><h4 class="font-bold">効果検証</h4><p class="text-xs text-gray-500">定量的測定と改善提案</p></div></div>
         </div>
     </section>
 
@@ -185,7 +168,6 @@
                 <div class="space-y-6 text-gray-400">
                     <div class="flex items-center gap-4 p-2 hover:bg-blue-600/10 rounded-lg"><i data-lucide="mail" class="text-blue-400"></i> aic.nexora@gmail.com</div>
                     <div class="flex items-center gap-4 p-2 hover:bg-blue-600/10 rounded-lg"><i data-lucide="map-pin" class="text-blue-400"></i> Sagamihara, Minami-ku, Japan</div>
-                    <div class="flex items-center gap-4 p-2 hover:bg-blue-600/10 rounded-lg"><i data-lucide="clock" class="text-blue-400"></i> 平日 9:00 - 18:00</div>
                 </div>
             </div>
             <form class="glass-card p-10 space-y-6 reveal">
@@ -198,9 +180,15 @@
         </div>
     </section>
 
-    <footer class="py-12 border-t border-white/5 text-center space-y-6">
-        <div class="text-2xl font-bold tracking-tighter">NEXORA</div>
-        <p class="text-[10px] text-gray-700">&copy; 2026 NEXORA Inc. All Rights Reserved.</p>
+    <footer class="py-16 border-t border-white/5 text-center space-y-6">
+        <div class="flex flex-col items-center gap-4">
+            <div class="flex items-center gap-3">
+                <img src="logo.png" alt="NEXORA ロゴ" class="h-8 w-auto object-contain" onerror="this.style.display='none'">
+                <div class="text-2xl font-bold tracking-tighter">NEXORA</div>
+            </div>
+            <p class="text-gray-500 text-xs max-w-xs mx-auto">中小企業の可能性をAIで最大化する、戦略的コンサルティングパートナー。</p>
+        </div>
+        <p class="text-[10px] text-gray-700 uppercase tracking-widest">&copy; 2026 NEXORA Inc. All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -210,9 +198,11 @@
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
+            if(slides.length > 0) {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
         }, 5000);
 
         // アニメーション監視
