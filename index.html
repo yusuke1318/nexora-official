@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA | 中小企業向け戦略的AIコンサルティング</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'Noto Sans JP', sans-serif; background-color: #0a0a0a; color: white; scroll-behavior: smooth; }
+        .glass-card { background: rgba(17, 25, 40, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; }
+        .hero-glow { background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, rgba(10, 10, 10, 1) 100%); }
+        .text-gradient { background: linear-gradient(to right, #60a5fa, #22d3ee, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { motion } = FramerMotion;
+
+        const Icon = ({ name, size = 24, className = "" }) => {
+            useEffect(() => { lucide.createIcons(); }, []);
+            return <i data-lucide={name} style={{ width: size, height: size }} className={className}></i>;
+        };
+
+        function App() {
+            return (
+                <div className="relative overflow-hidden">
+                    {/* Navigation */}
+                    <nav className="fixed top-0 w-full z-50 border-b border-white/10 bg-[#0a0a0a]/80 backdrop-blur-md px-6 py-4 flex justify-between items-center">
+                        <div className="flex items-center gap-2">
+                            <span className="text-2xl font-bold tracking-tighter">NEXORA</span>
+                        </div>
+                        <div className="flex items-center gap-6">
+                            <div className="hidden md:flex gap-8 text-sm font-light text-gray-400">
+                                <a href="#services" className="hover:text-cyan-400 transition-colors">サービス</a>
+                                <a href="#why" className="hover:text-cyan-400 transition-colors">特徴</a>
+                                <a href="#process" className="hover:text-cyan-400 transition-colors">導入プロセス</a>
+                            </div>
+                            <button className="md:hidden text-white"><Icon name="menu" /></button>
+                        </div>
+                    </nav>
+
+                    {/* Hero Section */}
+                    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 hero-glow pt-20">
+                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center space-y-8 max-w-4xl">
+                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-bold tracking-wider">
+                                <Icon name="sparkles" size={14} /> AI Consulting Firm
+                            </div>
+                            <h1 className="text-5xl md:text-8xl font-bold tracking-tight leading-tight">
+                                AIは、もう大企業だけの<br />
+                                <span className="text-gradient">特権ではない。</span>
+                            </h1>
+                            <p className="text-lg md:text-xl text-gray-400 font-light max-w-2xl mx-auto leading-relaxed">
+                                漠然とした期待を、具体的な利益へ。NEXORAは中小企業の現場に「実行力」をもたらすAIパートナーです。
+                            </p>
+                            <div className="pt-8">
+                                <a href="#contact" className="px-10 py-5 bg-blue-600 rounded-xl text-white font-bold text-lg hover:bg-blue-500 transition-all flex items-center justify-center gap-3 w-fit mx-auto shadow-lg shadow-blue-500/20">
+                                    無料診断を予約する <Icon name="arrow-right" size={20} />
+                                </a>
+                                <p className="mt-6 text-gray-500 text-sm">詳しく見る <Icon name="mouse-pointer-2" size={14} className="inline ml-1" /></p>
+                            </div>
+                        </motion.div>
+                    </section>
+
+                    {/* Services Section */}
+                    <section id="services" className="py-32 px-4 max-w-7xl mx-auto">
+                        <div className="text-center mb-20 space-y-4">
+                            <p className="text-cyan-400 text-sm font-bold tracking-[0.3em] uppercase">SERVICES</p>
+                            <h2 className="text-4xl md:text-5xl font-bold">包括的なAIサポート</h2>
+                            <div className="h-1 w-20 bg-blue-600 mx-auto"></div>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {[
+                                { icon: 'compass', title: 'AI導入診断', desc: '貴社の業務プロセスを詳細に分析し、AI導入の可能性と最適な戦略を明確化します。', points: ['現状分析', '機会発掘', 'ロードマップ策定'] },
+                                { icon: 'zap', title: '伴走型コンサルティング', desc: 'ツール選定からプロンプト設計、業務フローへの組み込みまで、実践的な支援を行います。', points: ['ツール選定', 'プロンプト設計', '実装支援'] },
+                                { icon: 'users', title: 'AI人材育成・リスキリング', desc: '従業員がAIを自律的に使いこなせるよう、実務を通じたワークショップを提供します。', points: ['基礎研修', '実務スキル', '内製化支援'] }
+                            ].map((s, i) => (
+                                <motion.div key={i} whileHover={{ y: -10 }} className="glass-card p-10 space-y-6">
+                                    <div className="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/40">
+                                        <Icon name={s.icon} size={32} className="text-white" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold">{s.title}</h3>
+                                    <p className="text-gray-400 leading-relaxed text-sm">{s.desc}</p>
+                                    <ul className="space-y-3 pt-4">
+                                        {s.points.map((p, j) => (
+                                            <li key={j} className="flex items-center gap-3 text-sm text-gray-300">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-cyan-400"></div> {p}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Why NEXORA */}
+                    <section id="why" className="py-32 bg-[#050a18] px-4">
+                        <div className="max-w-7xl mx-auto">
+                            <div className="text-center mb-20 space-y-4">
+                                <p className="text-cyan-400 text-sm font-bold tracking-[0.3em] uppercase">WHY NEXORA</p>
+                                <h2 className="text-4xl md:text-5xl font-bold">NEXORAが選ばれる理由</h2>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                {[
+                                    { icon: 'target', title: '中小企業専門', desc: '大企業向けではなく、中小企業の実情に合わせた提案。' },
+                                    { icon: 'trending-up', title: 'ROI重視', desc: '投資対効果を最大化する、実利志向の導入アプローチ。' },
+                                    { icon: 'shield-check', title: 'セキュリティ', desc: 'データプライバシーを最優先に考えた、安全なAI活用。' },
+                                    { icon: 'clock', title: '迅速な導入', desc: '最短2週間で効果を実感できる、スピーディーな実装。' }
+                                ].map((w, i) => (
+                                    <div key={i} className="glass-card p-8 text-center space-y-4">
+                                        <div className="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mx-auto">
+                                            <Icon name={w.icon} />
+                                        </div>
+                                        <h4 className="font-bold">{w.title}</h4>
+                                        <p className="text-xs text-gray-400 leading-relaxed">{w.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Process Section */}
+                    <section id="process" className="py-32 px-4 max-w-5xl mx-auto">
+                        <div className="text-center mb-20 space-y-4">
+                            <p className="text-cyan-400 text-sm font-bold tracking-[0.3em] uppercase">PROCESS</p>
+                            <h2 className="text-4xl md:text-5xl font-bold">導入プロセス</h2>
+                        </div>
+                        <div className="space-y-8">
+                            {[
+                                { step: '01', title: '無料診断', desc: '現状の業務課題とAI活用の可能性を無料でヒアリング' },
+                                { step: '02', title: '戦略立案', desc: '費用対効果を明確にした導入プランを策定' },
+                                { step: '03', title: '実装支援', desc: 'ツール選定から運用定着まで伴走サポート' },
+                                { step: '04', title: '効果検証', desc: '定量的な効果測定と継続的な改善提案' }
+                            ].map((p, i) => (
+                                <div key={i} className="flex gap-8 items-center glass-card p-8">
+                                    <div className="text-4xl font-bold text-blue-500 opacity-50">{p.step}</div>
+                                    <div>
+                                        <h4 className="text-xl font-bold mb-1">{p.title}</h4>
+                                        <p className="text-gray-400 text-sm">{p.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Statistics */}
+                    <section className="py-32 bg-[#0a0a0a] border-y border-white/5">
+                        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12 px-4 text-center">
+                            {[
+                                { label: '導入企業数', val: '150+' },
+                                { label: '顧客満足度', val: '98%' },
+                                { label: '平均業務効率改善', val: '40%' },
+                                { label: '最短導入期間', val: '2週間' }
+                            ].map((s, i) => (
+                                <div key={i} className="space-y-2">
+                                    <div className="text-4xl md:text-5xl font-bold text-gradient">{s.val}</div>
+                                    <div className="text-gray-500 text-sm">{s.label}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Contact Section */}
+                    <section id="contact" className="py-32 px-4 bg-[#050a18]">
+                        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+                            <div className="space-y-12">
+                                <div className="space-y-4">
+                                    <p className="text-cyan-400 text-sm font-bold tracking-[0.3em] uppercase">CONTACT</p>
+                                    <h2 className="text-4xl md:text-6xl font-bold leading-tight">今すぐ始めましょう。</h2>
+                                    <p className="text-gray-400 text-lg font-light">初回相談は無料です。貴社の課題に合わせたオーダーメイドのAI活用プランをご提案します。</p>
+                                </div>
+                                <div className="space-y-8">
+                                    <div className="flex items-center gap-6">
+                                        <div className="w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400"><Icon name="mail" /></div>
+                                        <div><p className="text-xs text-gray-500">Email</p><p className="font-bold">aic.nexora@gmail.com</p></div>
+                                    </div>
+                                    <div className="flex items-center gap-6">
+                                        <div className="w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400"><Icon name="map-pin" /></div>
+                                        <div><p className="text-xs text-gray-500">Location</p><p className="font-bold">Sagamihara, Minami-ku, Japan</p></div>
+                                    </div>
+                                    <div className="flex items-center gap-6">
+                                        <div className="w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400"><Icon name="clock" /></div>
+                                        <div><p className="text-xs text-gray-500">営業時間</p><p className="font-bold">平日 9:00 - 18:00</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form onSubmit={handleSubmit} className="glass-card p-10 space-y-6">
+                                <input type="text" placeholder="会社名" className="w-full bg-black/40 border border-white/10 rounded-xl px-6 py-4 focus:border-cyan-500 outline-none" required />
+                                <input type="text" placeholder="お名前" className="w-full bg-black/40 border border-white/10 rounded-xl px-6 py-4 focus:border-cyan-500 outline-none" required />
+                                <input type="email" placeholder="メールアドレス" className="w-full bg-black/40 border border-white/10 rounded-xl px-6 py-4 focus:border-cyan-500 outline-none" required />
+                                <textarea placeholder="ご相談内容" rows="4" className="w-full bg-black/40 border border-white/10 rounded-xl px-6 py-4 focus:border-cyan-500 outline-none resize-none" required></textarea>
+                                <button className="w-full py-5 bg-blue-600 rounded-xl text-white font-bold flex items-center justify-center gap-3 hover:bg-blue-500 transition-all">
+                                    {isLoading ? "送信中..." : "無料診断を申し込む"} <Icon name="arrow-right" size={20} />
+                                </button>
+                                {isSubmitted && <p className="text-cyan-400 text-center text-sm">送信が完了しました。24時間以内にご連絡いたします。</p>}
+                            </form>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="py-12 border-t border-white/5 text-center space-y-6">
+                        <div className="text-3xl font-bold tracking-tighter">NEXORA</div>
+                        <div className="flex justify-center gap-8 text-xs text-gray-500 uppercase tracking-widest">
+                            <a href="#services">サービス</a>
+                            <a href="#why">特徴</a>
+                            <a href="#process">導入プロセス</a>
+                            <a href="#contact">お問い合わせ</a>
+                        </div>
+                        <p className="text-[10px] text-gray-600">
+                            &copy; 2026 NEXORA Inc. All rights reserved. <br />
+                            Powered by AI Consultant "NEXORA"
+                        </p>
+                    </footer>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
