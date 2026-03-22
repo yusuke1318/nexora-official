@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Profile | NEXORA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'Noto Sans JP', sans-serif; background-color: #0a0a0a; color: white; margin: 0; }
+        .hero-glow { background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, rgba(10, 10, 10, 1) 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; }
+        #menu-overlay { clip-path: circle(0% at 100% 0%); transition: clip-path 0.6s ease-in-out; }
+        #menu-overlay.open { clip-path: circle(150% at 100% 0%); }
+    </style>
+</head>
+<body>
+    <nav class="fixed top-0 w-full z-[100] bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold tracking-tighter hover:text-blue-400 transition-colors">NEXORA</a>
+        <button id="menu-btn" class="p-2 text-white hover:text-blue-400 transition-colors"><i data-lucide="menu" id="menu-icon"></i></button>
+    </nav>
+
+    <div id="menu-overlay" class="fixed inset-0 z-[90] bg-[#0a0a0a] flex flex-col items-center justify-center space-y-8 text-3xl font-bold">
+        <a href="index.html" class="hover:text-blue-400 transition-colors">HOME</a>
+        <a href="index.html#services" class="hover:text-blue-400 transition-colors">SERVICES</a>
+        <a href="index.html#contact" class="hover:text-blue-400 transition-colors">CONTACT</a>
+    </div>
+
+    <section class="min-h-screen pt-40 px-6 hero-glow flex flex-col items-center">
+        <div class="max-w-4xl w-full space-y-16">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold mb-4">Company Profile</h1>
+                <p class="text-blue-400 tracking-widest uppercase text-sm">会社概要</p>
+            </div>
+
+            <div class="glass-card overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-3 border-b border-white/5">
+                    <div class="p-8 bg-white/5 font-bold">会社名</div>
+                    <div class="p-8 md:col-span-2">株式会社 NEXORA (NEXORA Inc.)</div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 border-b border-white/5">
+                    <div class="p-8 bg-white/5 font-bold">設立</div>
+                    <div class="p-8 md:col-span-2">2026年 1月</div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 border-b border-white/5">
+                    <div class="p-8 bg-white/5 font-bold">所在地</div>
+                    <div class="p-8 md:col-span-2">神奈川県相模原市南区</div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 border-b border-white/5">
+                    <div class="p-8 bg-white/5 font-bold">事業内容</div>
+                    <div class="p-8 md:col-span-2 space-y-2">
+                        <p>・中小企業向けAI導入診断・戦略策定</p>
+                        <p>・AIエージェント実装・運用コンサルティング</p>
+                        <p>・AIリテラシー向上研修・人材育成支援</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 border-b border-white/5">
+                    <div class="p-8 bg-white/5 font-bold">ミッション</div>
+                    <div class="p-8 md:col-span-2 text-gray-300 leading-relaxed">
+                        「知」のアップデートを、すべての現場へ。最先端のAI技術を誰もが使いこなせる武器に変え、企業の爆発的な成長を支援します。
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center pb-20">
+                <a href="index.html" class="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                    <i data-lucide="arrow-left"></i> トップページに戻る
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+        const menuBtn = document.getElementById('menu-btn');
+        const overlay = document.getElementById('menu-overlay');
+        const menuIcon = document.getElementById('menu-icon');
+        menuBtn.addEventListener('click', () => {
+            overlay.classList.toggle('open');
+            const isOpen = overlay.classList.contains('open');
+            menuIcon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
